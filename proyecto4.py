@@ -1,25 +1,13 @@
 import numpy as np
 import os
 
-# ============================
-# PARÁMETROS ESPACIALES
-# ============================
-
 xmin, xmax = 0.0, 1.0
 hx = 0.1
 x = np.arange(xmin, xmax + hx, hx)
 n = len(x) - 2
 
-# ============================
-# CONDICIÓN INICIAL
-# ============================
-
 def condicion_inicial(x):
     return np.sin(np.pi * x)
-
-# ============================
-# MÉTODO PROGRESIVO
-# ============================
 
 def progresivo(ht):
     lambda_ = ht / hx**2
@@ -41,10 +29,6 @@ def progresivo(ht):
         w = w_new
 
     return w
-
-# ============================
-# MÉTODO REGRESIVO (Gauss–Seidel)
-# ============================
 
 def regresivo(ht):
     lambda_ = ht / hx**2
@@ -75,10 +59,6 @@ def regresivo(ht):
         w = np.loadtxt("gs_solution.out")
 
     return w
-
-# ============================
-# EJECUCIONES
-# ============================
 
 for ht in [0.0005, 0.01]:
 
